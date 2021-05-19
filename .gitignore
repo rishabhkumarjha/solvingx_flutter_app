@@ -53,3 +53,5 @@ pubspec.lock
 test/
 web/
 windows/
+.firebase/
+.firebase
