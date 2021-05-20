@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:solvingx_ui/home.dart';
+import 'package:solvingx_ui/landing_page/landingPage.dart';
 
 void main() {
   runApp(SolvingxApp());
