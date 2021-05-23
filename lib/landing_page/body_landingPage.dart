@@ -7,9 +7,10 @@ class Body extends StatelessWidget {
     List<String> imgList = [
       "https://live.staticflickr.com/2896/33583627230_066841a2fb_b.jpg",
       "https://live.staticflickr.com/7158/6629088361_602f6c9736_b.jpg",
-      "https://pixnio.com/free-images/2017/07/18/2017-07-18-12-47-47-300x199.jpg"
+      "https://live.staticflickr.com/6210/6141063234_c40c8466c9_b.jpg",
+      "https://live.staticflickr.com/5167/5269425200_2aca6cfe60_b.jpg"
     ];
-    Widget _sectionBuilder(context, index) {
+    Widget _featuredItemBuilder(context, index) {
       return Card(
         color: Color(0xff10111c),
         elevation: 2,
@@ -38,16 +39,35 @@ class Body extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "Featured",
+                "#Featured",
                 style: TextStyle(color: Colors.orange, fontSize: 26),
               ),
             ),
             Container(
               height: MediaQuery.of(context).size.height / 3,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: imgList.length,
-                itemBuilder: _sectionBuilder,
+              child: Scrollbar(
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: imgList.length,
+                  itemBuilder: _featuredItemBuilder,
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "#Apps",
+                style: TextStyle(color: Colors.orange, fontSize: 26),
+              ),
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height / 3,
+              child: Scrollbar(
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: _featuredItemBuilder,
+                  itemCount: imgList.length,
+                ),
               ),
             )
           ],
