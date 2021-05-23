@@ -69,6 +69,89 @@ class Body extends StatelessWidget {
                   itemCount: imgList.length,
                 ),
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "#About Us",
+                style: TextStyle(color: Colors.orange, fontSize: 26),
+              ),
+            ),
+            Row(
+              children: [
+                Flexible(
+                  child: Card(
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.security_rounded,
+                        size: 26,
+                        color: Colors.blue,
+                      ),
+                      title: Text(
+                        "Security",
+                        style: TextStyle(fontSize: 26),
+                      ),
+                      subtitle: Text(
+                          "We take our members security seriously hence we anonymise all data collected in our databases"),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Card(
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.security_rounded,
+                        size: 26,
+                        color: Colors.blue,
+                      ),
+                      title: Text(
+                        "Security",
+                        style: TextStyle(fontSize: 26),
+                      ),
+                      subtitle: Text(
+                          "We take our members security seriously hence we anonymise all data collected in our databases"),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Flexible(
+                  child: Card(
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.security_rounded,
+                        size: 26,
+                        color: Colors.blue,
+                      ),
+                      title: Text(
+                        "Security",
+                        style: TextStyle(fontSize: 26),
+                      ),
+                      subtitle: Text(
+                          "We take our members security seriously hence we anonymise all data collected in our databases"),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  child: Card(
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.security_rounded,
+                        size: 26,
+                        color: Colors.blue,
+                      ),
+                      title: Text(
+                        "Security",
+                        style: TextStyle(fontSize: 26),
+                      ),
+                      subtitle: Text(
+                          "We take our members security seriously hence we anonymise all data collected in our databases"),
+                    ),
+                  ),
+                )
+              ],
             )
           ],
         )
