@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:solvingx_ui/landing_page/landingPage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() {
-  runApp(SolvingxApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => FirebaseInit(),
+      builder: (context, child) => SolvingxApp()));
 }
 
 class SolvingxApp extends StatelessWidget {
@@ -10,21 +14,29 @@ class SolvingxApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Solvingx',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage()
-    );
+        title: 'Solvingx',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage());
+  }
+}
+
+class FirebaseInit extends ChangeNotifier {
+  FirebaseInit() {
+    init();
+  }
+  Future<void> init() async {
+    await Firebase.initializeApp();
   }
 }
 
@@ -33,6 +45,4 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LandingPage();
   }
-
 }
-
