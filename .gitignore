@@ -44,8 +44,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/.android
 
-android/
 ios/
 linux/
 macos/
@@ -55,3 +55,4 @@ web/
 windows/
 .firebase/
 .firebase
+

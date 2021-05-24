@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "162705809464",
+    "project_id": "solvingx-ui",
+    "storage_bucket": "solvingx-ui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162705809464:android:fcc356e3b2d7c78fdfc6cd",
+        "android_client_info": {
+          "package_name": "in.solvingx.solvingx_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162705809464-2bgf4c8roeviucd96l40e7gasmsiqqin.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATPViXrn-tk-xaqsDqX9kJ_MYE26LVN9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162705809464-2bgf4c8roeviucd96l40e7gasmsiqqin.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
