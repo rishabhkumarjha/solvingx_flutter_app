@@ -127,97 +127,9 @@ class AboutUsBroad extends StatelessWidget {
             "Loading...",
             style: TextStyle(color: Colors.orange),
           );
-        return Column(children: _getAboutUsSections(snapshot.data.docs)
-            // (
-            //   itemExtent: 80,
-            //   itemCount: snapshot.data.docs.length,
-            //   itemBuilder: (context, index) =>
-            //       _buildAboutUsItems(context, snapshot.data.docs[index]),
-            // ),
-
-            );
+        return Column(children: _getAboutUsSections(snapshot.data.docs));
       },
     );
-    // Column(
-    //   children: [
-    //     Row(
-    //       children: [
-    //         Flexible(
-    //           child: Card(
-    //             child: ListTile(
-    //               leading: Icon(
-    //                 Icons.security_rounded,
-    //                 size: 26,
-    //                 color: Colors.blue,
-    //               ),
-    //               title: Text(
-    //                 "Security",
-    //                 style: TextStyle(fontSize: 26),
-    //               ),
-    //               subtitle: Text(
-    //                   "We take our members security seriously hence we anonymise all data collected in our databases"),
-    //             ),
-    //           ),
-    //         ),
-    //         Flexible(
-    //           child: Card(
-    //             child: ListTile(
-    //               leading: Icon(
-    //                 Icons.security_rounded,
-    //                 size: 26,
-    //                 color: Colors.blue,
-    //               ),
-    //               title: Text(
-    //                 "Security",
-    //                 style: TextStyle(fontSize: 26),
-    //               ),
-    //               subtitle: Text(
-    //                   "We take our members security seriously hence we anonymise all data collected in our databases"),
-    //             ),
-    //           ),
-    //         ),
-    //       ],
-    //     ),
-    //     Row(
-    //       children: [
-    //         Flexible(
-    //           child: Card(
-    //             child: ListTile(
-    //               leading: Icon(
-    //                 Icons.security_rounded,
-    //                 size: 26,
-    //                 color: Colors.blue,
-    //               ),
-    //               title: Text(
-    //                 "Security",
-    //                 style: TextStyle(fontSize: 26),
-    //               ),
-    //               subtitle: Text(
-    //                   "We take our members security seriously hence we anonymise all data collected in our databases"),
-    //             ),
-    //           ),
-    //         ),
-    //         Flexible(
-    //           child: Card(
-    //             child: ListTile(
-    //               leading: Icon(
-    //                 Icons.security_rounded,
-    //                 size: 26,
-    //                 color: Colors.blue,
-    //               ),
-    //               title: Text(
-    //                 "Security",
-    //                 style: TextStyle(fontSize: 26),
-    //               ),
-    //               subtitle: Text(
-    //                   "We take our members security seriously hence we anonymise all data collected in our databases"),
-    //             ),
-    //           ),
-    //         )
-    //       ],
-    //     )
-    //   ],
-    // );
   }
 }
 
