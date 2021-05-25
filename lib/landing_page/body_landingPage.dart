@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -82,7 +84,15 @@ class Body extends StatelessWidget {
                 if (constraints.maxWidth > 700)
                   return AboutUsBroad();
                 else
-                  return AboutUsNarrow();
+                  return FutureBuilder(
+                    future: Firebase.initializeApp(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) return Text("error encountered");
+                      if (snapshot.connectionState == ConnectionState.done)
+                        return AboutUsBroad();
+                      return Placeholder();
+                    },
+                  );
               },
             )
           ],
@@ -93,87 +103,32 @@ class Body extends StatelessWidget {
 }
 
 class AboutUsBroad extends StatelessWidget {
+  List<Widget> _getAboutUsSections(List<DocumentSnapshot> docs) {
+    List<Widget> sections = [];
+    for (var doc in docs) {
+      sections.add(Card(
+        child: ListTile(
+          dense: true,
+          title: Text(doc['title']),
+          subtitle: Text(doc['subtitle']),
+        ),
+      ));
+    }
+    return sections;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Flexible(
-              child: Card(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.security_rounded,
-                    size: 26,
-                    color: Colors.blue,
-                  ),
-                  title: Text(
-                    "Security",
-                    style: TextStyle(fontSize: 26),
-                  ),
-                  subtitle: Text(
-                      "We take our members security seriously hence we anonymise all data collected in our databases"),
-                ),
-              ),
-            ),
-            Flexible(
-              child: Card(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.security_rounded,
-                    size: 26,
-                    color: Colors.blue,
-                  ),
-                  title: Text(
-                    "Security",
-                    style: TextStyle(fontSize: 26),
-                  ),
-                  subtitle: Text(
-                      "We take our members security seriously hence we anonymise all data collected in our databases"),
-                ),
-              ),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Flexible(
-              child: Card(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.security_rounded,
-                    size: 26,
-                    color: Colors.blue,
-                  ),
-                  title: Text(
-                    "Security",
-                    style: TextStyle(fontSize: 26),
-                  ),
-                  subtitle: Text(
-                      "We take our members security seriously hence we anonymise all data collected in our databases"),
-                ),
-              ),
-            ),
-            Flexible(
-              child: Card(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.security_rounded,
-                    size: 26,
-                    color: Colors.blue,
-                  ),
-                  title: Text(
-                    "Security",
-                    style: TextStyle(fontSize: 26),
-                  ),
-                  subtitle: Text(
-                      "We take our members security seriously hence we anonymise all data collected in our databases"),
-                ),
-              ),
-            )
-          ],
-        )
-      ],
+    return StreamBuilder(
+      stream: FirebaseFirestore.instance.collection("aboutUs").snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData)
+          return Text(
+            "Loading...",
+            style: TextStyle(color: Colors.orange),
+          );
+        return Column(children: _getAboutUsSections(snapshot.data.docs));
+      },
     );
   }
 }
