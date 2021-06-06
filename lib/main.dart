@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:solvingx_ui/landing_page/landingPage.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:solvingx_ui/services/authService.dart';
 
 void main() {
+  setup();
   runApp(SolvingxApp());
+}
+
+void setup() {
+  final getIt = GetIt.instance;
+  getIt.registerSingleton(AuthService());
 }
 
 class SolvingxApp extends StatelessWidget {
@@ -14,15 +22,6 @@ class SolvingxApp extends StatelessWidget {
         title: 'Solvingx',
         theme: ThemeData(primarySwatch: Colors.grey),
         home: MyHomePage());
-  }
-}
-
-class FirebaseInit extends ChangeNotifier {
-  FirebaseInit() {
-    init();
-  }
-  Future<void> init() async {
-    await Firebase.initializeApp();
   }
 }
 
