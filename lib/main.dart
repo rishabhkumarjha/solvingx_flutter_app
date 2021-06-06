@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:solvingx_ui/landing_page/landingPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -13,9 +12,7 @@ class SolvingxApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Solvingx',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: ThemeData(primarySwatch: Colors.grey),
         home: MyHomePage());
   }
 }

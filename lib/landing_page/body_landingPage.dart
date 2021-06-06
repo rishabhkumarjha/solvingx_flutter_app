@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:markdown/markdown.dart' as md;
 
 class Body extends StatelessWidget {
   @override
@@ -14,7 +16,6 @@ class Body extends StatelessWidget {
     ];
     Widget _featuredItemBuilder(context, index) {
       return Card(
-        color: Color(0xff10111c),
         elevation: 2,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -33,7 +34,7 @@ class Body extends StatelessWidget {
     }
 
     return Container(
-      color: new Color(0xff11284d),
+      color: Colors.grey[100],
       child: ListView(children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +95,7 @@ class Body extends StatelessWidget {
                     },
                   );
               },
-            )
+            ),
           ],
         )
       ]),
